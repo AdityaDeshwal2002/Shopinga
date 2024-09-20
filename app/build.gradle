@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'org.jetbrains.kotlin.kapt'
+
 }
 
 android {
@@ -32,6 +33,10 @@ android {
 
     kotlinOptions {
         jvmTarget = "1.8"
+    }
+
+    kapt {
+        correctErrorTypes = true
     }
 }
 
@@ -74,4 +79,8 @@ dependencies {
     // Kodein
     implementation "org.kodein.di:kodein-di-generic-jvm:$kodeinVersion"
     implementation "org.kodein.di:kodein-di-framework-android-x:$kodeinVersion"
+    //Epoxy
+    implementation "com.airbnb.android:epoxy:$epoxyVersion"
+    // Add the annotation processor if you are using Epoxy's annotations (recommended)
+    annotationProcessor "com.airbnb.android:epoxy-processor:$epoxyVersion"
 }
